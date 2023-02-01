@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alph1
+kind: Application
+metadata:
+  name: librimem-argocd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Erinbro/librimem-config.git
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server:  192.168.49.2:8443
+    namespace: librimem-argocd
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
+
+
