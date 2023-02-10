@@ -1,0 +1,6 @@
+skip_credentials_validation = true
+skip_region_validation = true
+bucket=”yourbucket”
+key=”your-terraform.tfstate”
+region="eu-central
+endpoint=”us-southeast-1.linodeobjects.com”

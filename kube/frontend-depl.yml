@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: librimem-frontend
   labels:
-    app:
-      librimem-frontend
+    app: librimem-frontend
 spec:
   replicas: 1
   selector:
@@ -24,8 +23,7 @@ spec:
               containerPort: 80
           resources:
             limits:
-              cpu: 0.2
+              cpu: "0.2"
               memory: "200Mi"
       imagePullSecrets:
         - name: regcred
-

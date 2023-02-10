@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lm-ingress
+  # annotation:
+  # kuberntes.io/ingress.class: "nginx"
+  # cert-manager.io/cluster-issuer: "letsencrypt-staging"
+spec:
+  tls:
+    - secretName: librimem.online
+      hosts:
+        - librimem.online
+  ingressClassName: lm-ingress
+  rules:
+    - host: librimem.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: librimem-frontend
+                port:
+                  number: 80
+          - path: /api/v1/books
+            pathType: Exact
+            backend:
+              service:
+                name: librimem-book
+                port:
+                  number: 8080
+          - path: /api/v1/chapters
+            pathType: Exact
+            backend:
+              service:
+                name: librimem-chapter
+                port:
+                  number: 8081
+          - path: /api/v1/flashcards
+            pathType: Exact
+            backend:
+              service:
+                name: librimem-flashcard
+                port:
+                  number: 8082
