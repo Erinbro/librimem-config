@@ -7,9 +7,9 @@ metadata:
   # cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
   tls:
-    - secretName: librimem.online
-      hosts:
+    - hosts:
         - librimem.online
+      secretName: letsencrypt-cluster-issuer-key
   ingressClassName: lm-ingress
   rules:
     - host: librimem.online
@@ -21,25 +21,25 @@ spec:
               service:
                 name: librimem-frontend
                 port:
-                  number: 80
+                  number: 8079
           - path: /api/v1/books
             pathType: Exact
             backend:
               service:
-                name: librimem-book
+                name: book
                 port:
                   number: 8080
           - path: /api/v1/chapters
             pathType: Exact
             backend:
               service:
-                name: librimem-chapter
+                name: chapter
                 port:
                   number: 8081
           - path: /api/v1/flashcards
             pathType: Exact
             backend:
               service:
-                name: librimem-flashcard
+                name: user
                 port:
                   number: 8082

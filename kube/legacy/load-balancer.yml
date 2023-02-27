@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: lm-lb
-spec:
-  selector:
-    app: librimem-frontend
-  type: LoadBalancer

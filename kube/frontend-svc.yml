@@ -8,6 +8,5 @@ spec:
     app: librimem-frontend
   ports:
     - name: http
-      port: 8081
+      port: 8079
       targetPort: 80
-

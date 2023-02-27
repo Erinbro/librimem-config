@@ -15,9 +15,10 @@ spec:
       containers:
         - name: postgres
           image: postgres:13
-          imagePullPolicy: "IfNotPresent"
+          imagePullPolicy: Always
           ports:
-            - 5432:5432
+            - name: http
+              containerPort: 5432
           envFrom:
             - configMapRef:
                 name: postgres-config

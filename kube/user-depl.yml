@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flashcard
+  name: user
   labels:
-    app: flashcard
+    app: user
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flashcard
+      app: user
   template:
     metadata:
       labels:
-        app: flashcard
+        app: user
     spec:
       containers:
-        - name: flashcard
-          image: josemagne/flashcard:latest
+        - name: user
+          image: josemagne/user:latest
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 8083
+              containerPort: 8082
           resources:
             limits:
               cpu: "0.2"
