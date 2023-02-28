@@ -2,17 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lm-ingress
-  # annotation:
-  # kuberntes.io/ingress.class: "nginx"
-  # cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   tls:
     - hosts:
-        - librimem.online
-      secretName: letsencrypt-cluster-issuer-key
-  ingressClassName: lm-ingress
+        - www.librimem.online
+      secretName: librimem-secret
   rules:
-    - host: librimem.online
+    - host: www.librimem.online
       http:
         paths:
           - path: /
@@ -36,7 +34,7 @@ spec:
                 name: chapter
                 port:
                   number: 8081
-          - path: /api/v1/flashcards
+          - path: /api/v1/users
             pathType: Exact
             backend:
               service:

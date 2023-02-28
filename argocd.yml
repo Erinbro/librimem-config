@@ -6,14 +6,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Erinbro/librimem-config
+    repoURL: git@github.com:Erinbro/librimem-config.git
     targetRevision: HEAD
     path: kube
     directory:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: "*"
+    namespace: default
 
   syncPolicy:
     syncOptions:
