@@ -23,7 +23,7 @@ spec:
               containerPort: 80
           resources:
             limits:
-              cpu: "0.2"
+              cpu: "200m"
               memory: "200Mi"
       imagePullSecrets:
         - name: regcred

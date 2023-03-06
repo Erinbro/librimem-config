@@ -8,6 +8,7 @@ spec:
   tls:
     - hosts:
         - www.librimem.online
+        - librimem.online
       secretName: librimem-secret
   rules:
     - host: www.librimem.online
@@ -21,23 +22,23 @@ spec:
                 port:
                   number: 8079
           - path: /api/v1/books
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: book
                 port:
                   number: 8080
           - path: /api/v1/chapters
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: chapter
                 port:
                   number: 8081
           - path: /api/v1/users
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
-                name: user
+                name: users
                 port:
                   number: 8082

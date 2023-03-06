@@ -23,7 +23,7 @@ spec:
               containerPort: 8083
           resources:
             limits:
-              cpu: "0.2"
-              memory: "400Mi"
+              cpu: "500m"
+              memory: "256Mi"
       imagePullSecrets:
         - name: regcred

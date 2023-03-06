@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user
+  name: users
   labels:
-    app: user
+    app: users
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user
+      app: users
   template:
     metadata:
       labels:
-        app: user
+        app: users
     spec:
       containers:
-        - name: user
-          image: josemagne/user:latest
+        - name: users
+          image: josemagne/users:latest
           imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8082
           resources:
             limits:
-              cpu: "0.2"
-              memory: "400Mi"
+              cpu: "500m"
+              memory: "256Mi"
       imagePullSecrets:
         - name: regcred
