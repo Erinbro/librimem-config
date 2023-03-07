@@ -9,4 +9,4 @@ spec:
   ports:
     - name: http
       port: 8088
-      targertPort: 8088
+      targetPort: 8088
