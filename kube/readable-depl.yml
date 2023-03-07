@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readable
+  labels:
+    app: readable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: readable
+    spec:
+      containers:
+        - name: readable
+          image: josemagne/readable:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8088
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+      imagePullSecrets:
+        - name: regcred
